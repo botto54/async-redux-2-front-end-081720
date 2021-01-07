@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { addPet } from '../actions/index'
+import { connect } from 'react-redux'
 
 export class PetNew extends Component {
 
@@ -49,6 +51,12 @@ export class PetNew extends Component {
   }
 }
 
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addPet: pet => dispatch(addPet(pet))
+//   }
+// }
 
 
-export default PetNew
+
+export default connect(null, { addPet })(PetNew)
