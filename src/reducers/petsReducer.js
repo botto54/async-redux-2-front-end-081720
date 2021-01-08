@@ -1,15 +1,9 @@
-let id = 0
-
-export default (state = [{name: "Felix", age: 4, species: "cockatiel"}], action) => {
-    const newPet = () => {
-        return {
-            ...action.payload,
-            id: id++
-        }
-    }
+export default (state = [], action) => {
     switch(action.type){
+        case "SET_PETS":
+            return [...action.payload]
         case "ADD_PET":
-            return [...state, newPet()]
+            return [...state, action.payload]
         case "REMOVE_PET":
             let newPets = state.filter(pet => pet.id !== action.payload)
             return [...newPets]
